@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-depeloyement
+  namespace: rohithns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-depeloyement
+  template:
+    metadata:
+      labels:
+        app: frontend-depeloyement
+    spec:
+      containers:
+        - name: frontend-depeloyement
+          image: nginxapp:v4
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80

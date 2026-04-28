@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployement
+  namespace: rohithns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-deployement
+  template:
+    metadata:
+      labels:
+        app: backend-deployement
+    spec:
+      containers:
+        - name: backend-deployement
+          image: jarapp:v2
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080   
